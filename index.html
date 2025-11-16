@@ -1,25 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF 8">
-<title>Imagen</title>
-<style>
-html, body {
-margin 0;
-padding 0;
-height 100percent;
-background color black;
-}
+  <meta charset="UTF-8">
+  <title>Etiqueta aceite</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: black;
+    }
 
-img {
-width 100percent;
-height 100percent;
-object fit contain;
-display block;
-}
-</style>
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.35);
+      color: white;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-<img src="ACEITE DE OLIVA VIRGEN EXTRA (3).png">
+  <div id="overlay">Toca para ver a pantalla completa</div>
+  <img src="ACEITE DE OLIVA VIRGEN EXTRA (3).png" id="etiqueta">
+
+  <script>
+    function goFull() {
+      var elem = document.documentElement;
+
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+      }
+
+      var overlay = document.getElementById("overlay");
+      if (overlay) {
+        overlay.style.display = "none";
+      }
+
+      document.removeEventListener("click", goFull);
+    }
+
+    document.addEventListener("click", goFull);
+  </script>
 </body>
 </html>
