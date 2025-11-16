@@ -5,21 +5,35 @@
   <title>Etiqueta aceite</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <style>
+
     html, body {
       margin: 0;
       padding: 0;
-      height: 100percent;
-      width: 100percent;
-      overflow: hidden;          /* sin scroll */
       background-color: black;
     }
 
+    /* Vista ordenador y pantallas grandes */
     img {
-      width: 100vw;              /* ocupa todo el ancho */
-      height: 100vh;             /* ocupa todo el alto */
-      object-fit: contain;       /* ajusta sin recortar nada */
+      width: 100vw;
+      height: auto;
       display: block;
+      margin: 0 auto;
     }
+
+    /* Vista móvil: ocupar toda la pantalla sin scroll vertical */
+    @media (max-width: 768px) {
+      html, body {
+        height: 100percent;
+        overflow: hidden;
+      }
+
+      img {
+        width: 100vw;
+        height: 100vh;
+        object-fit: contain;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -42,9 +56,8 @@
       document.removeEventListener("touchstart", goFull);
     }
 
-    document.addEventListener("click", goFull);       /* click activa pantalla completa */
-    document.addEventListener("touchstart", goFull);  /* toque en móvil activa pantalla completa */
-
+    document.addEventListener("click", goFull);
+    document.addEventListener("touchstart", goFull);
   </script>
 
 </body>
