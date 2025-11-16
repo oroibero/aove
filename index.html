@@ -3,35 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>Etiqueta aceite</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      width: 100%;
       height: 100%;
       background-color: black;
-      overflow: hidden; /* sin scroll */
-    }
-
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     img {
-      max-width: 100vw;   /* nunca más ancho que la pantalla */
-      max-height: 100vh;  /* nunca más alto que la pantalla */
-      width: auto;
-      height: auto;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
       display: block;
+    }
+
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.35);
+      color: white;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-
+  <div id="overlay">Toca para ver a pantalla completa</div>
   <img src="ACEITE DE OLIVA VIRGEN EXTRA (3).png" id="etiqueta">
 
   <script>
@@ -46,13 +52,15 @@
         elem.msRequestFullscreen();
       }
 
+      var overlay = document.getElementById("overlay");
+      if (overlay) {
+        overlay.style.display = "none";
+      }
+
       document.removeEventListener("click", goFull);
-      document.removeEventListener("touchstart", goFull);
     }
 
     document.addEventListener("click", goFull);
-    document.addEventListener("touchstart", goFull);
   </script>
-
 </body>
 </html>
