@@ -5,27 +5,22 @@
   <title>Etiqueta aceite</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <style>
-
     html, body {
       margin: 0;
       padding: 0;
-      overflow: hidden;
-      background-color: black;
       height: 100%;
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      overflow: hidden;
+      background-color: black;
     }
 
     img {
-      width: 100vw;       /* ancho completo */
-      height: auto;       /* altura automática para no deformar */
-      max-height: 100vh;  /* nunca superar la pantalla */
-      object-fit: contain;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;         /* rellena toda la pantalla */
+      object-position: top center; /* ancla la imagen arriba centrada */
       display: block;
     }
-
   </style>
 </head>
 <body>
