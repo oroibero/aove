@@ -8,24 +8,23 @@
     html, body {
       margin: 0;
       padding: 0;
-      width: 100%;
-      height: 100%;
+      height: 100percent;
+      width: 100percent;
+      overflow: hidden;          /* sin scroll */
       background-color: black;
-      overflow-x: hidden;     /* sin scroll horizontal */
-      overflow-y: auto;       /* scroll vertical suave */
     }
 
     img {
-      width: 100vw;           /* ocupa todo el ancho */
-      height: auto;           /* mantiene proporción */
+      width: 100vw;              /* ocupa todo el ancho */
+      height: 100vh;             /* ocupa todo el alto */
+      object-fit: contain;       /* ajusta sin recortar nada */
       display: block;
-      margin: 0 auto;         /* centrada */
     }
   </style>
 </head>
 <body>
 
-  <img src="ACEITE DE OLIVA VIRGEN EXTRA (3).png" id="etiqueta">
+  <img src="NOMBRE_DE_LA_IMAGEN.png" id="etiqueta">
 
   <script>
     function goFull() {
@@ -43,8 +42,9 @@
       document.removeEventListener("touchstart", goFull);
     }
 
-    document.addEventListener("click", goFull);
-    document.addEventListener("touchstart", goFull);
+    document.addEventListener("click", goFull);       /* click activa pantalla completa */
+    document.addEventListener("touchstart", goFull);  /* toque en móvil activa pantalla completa */
+
   </script>
 
 </body>
